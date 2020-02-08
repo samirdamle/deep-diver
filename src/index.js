@@ -3,7 +3,7 @@ const defaultAwesomeFunction = name => {
     return returnStr
 }
 
-const awesomeFunction = () => 'I am just an awesome Function'
+const awesomeFunction = () => 'I am just an awesome function.'
 
 export default defaultAwesomeFunction
 
