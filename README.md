@@ -1,6 +1,6 @@
 # NPM Module Boilerplate
 
-[![Build Status](https://travis-ci.org/flexdinesh/npm-module-boilerplate.svg?branch=master)](https://travis-ci.org/flexdinesh/npm-module-boilerplate) [![dependencies Status](https://david-dm.org/flexdinesh/npm-module-boilerplate/status.svg)](https://david-dm.org/flexdinesh/npm-module-boilerplate) [![devDependencies Status](https://david-dm.org/flexdinesh/npm-module-boilerplate/dev-status.svg)](https://david-dm.org/flexdinesh/npm-module-boilerplate?type=dev) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/samirdamle/deep-dive.svg?branch=master)](https://travis-ci.org/samirdamle/deep-dive) [![dependencies Status](https://david-dm.org/samirdamle/deep-dive/status.svg)](https://david-dm.org/samirdamle/deep-dive) [![devDependencies Status](https://david-dm.org/samirdamle/deep-dive/dev-status.svg)](https://david-dm.org/samirdamle/deep-dive?type=dev) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 **Start developing your NPM module in seconds** ✨
 
@@ -34,4 +34,4 @@ Just clone this repo and remove `.git` folder.
 
 # License
 
-MIT © Dinesh Pandiyan
+MIT © Samir Pandiyan

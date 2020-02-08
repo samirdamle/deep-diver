@@ -1,10 +1,13 @@
 {
-  "parser": "babel-eslint",
-  "extends": "airbnb",
-  "env": {
-    "mocha": true
-  },
-  "rules": {
-    "comma-dangle": ["error", "only-multiline"]
-  }
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+        "mocha": true
+    },
+    "rules": {
+        "arrow-parens": 0,
+        "comma-dangle": ["error", "only-multiline"],
+        "indent": [2, 4],
+        "semi": [1, "never"]
+    }
 }
