@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/samirdamle/deep-dive.svg?branch=master)](https://travis-ci.org/samirdamle/deep-dive) [![dependencies Status](https://david-dm.org/samirdamle/deep-dive/status.svg)](https://david-dm.org/samirdamle/deep-dive) [![devDependencies Status](https://david-dm.org/samirdamle/deep-dive/dev-status.svg)](https://david-dm.org/samirdamle/deep-dive?type=dev) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-**Deep Diver lets you Query, Mutate and Trasform values deep insde JavaScript objects.**
+**Deep Diver lets you Query, Mutate and Transform values deep inside JavaScript objects.**
 
 # Features
 
