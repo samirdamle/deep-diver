@@ -1,7 +1,7 @@
 {
-    "name": "deep-dive",
-    "version": "0.0.1",
-    "description": "Deep Dive lets you query and mutate deep JavaScript objects.",
+    "name": "deep-diver",
+    "version": "0.1.1",
+    "description": "Deep Diver lets you query and mutate deep JavaScript objects.",
     "main": "./lib/index.js",
     "scripts": {
         "clean": "rimraf lib",
