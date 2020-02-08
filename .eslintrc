@@ -5,9 +5,16 @@
         "mocha": true
     },
     "rules": {
+        "arrow-body-style": [0, "as-needed"],
         "arrow-parens": 0,
         "comma-dangle": ["error", "only-multiline"],
+        "function-paren-newline": 0,
+        "implicit-arrow-linebreak": 0,
         "indent": [2, 4],
+        "max-len": [2, 300],
+        "no-nested-ternary": 0,
+        "no-param-reassign": [2, { "props": false }],
+        "no-return-assign": 2,
         "semi": [1, "never"]
     }
 }

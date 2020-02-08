@@ -1,14 +1,23 @@
 import { assert } from 'chai'
-import defaultAwesomeFunction, { awesomeFunction } from '../src'
+import deepDiver from '../src'
 
-describe('Awesome test.', () => {
-    it('should test default awesome function', () => {
-        const expectedVal = 'I am the default function! - Samir'
-        assert(defaultAwesomeFunction('Samir') === expectedVal, 'Default not awesome :(')
-    })
+describe('Basic test', () => {
+    it('should test deepDiver.get()', () => {
+        const obj = {
+            users: [
+                {
+                    name: 'Bob Smith',
+                    age: 32,
+                    address: {
+                        line1: '1234 W Madison Ave.',
+                        city: 'Chicago',
+                        state: 'IL',
+                        zipcode: '60606'
+                    }
+                }
+            ]
+        }
 
-    it('should test awesome function', () => {
-        const expectedVal = 'I am just an awesome function.'
-        assert(awesomeFunction() === expectedVal, 'Named awesome :)')
+        assert(deepDiver(obj, ['users', 0, 'name']) === obj.users[0].name, 'Did not fetch expected value at path.')
     })
 })
