@@ -1,6 +1,6 @@
 {
     "name": "deep-diver",
-    "version": "0.1.1",
+    "version": "0.1.3",
     "description": "Deep Diver lets you query and mutate deep JavaScript objects.",
     "main": "./lib/index.js",
     "scripts": {
