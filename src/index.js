@@ -13,7 +13,7 @@ const deepDiver = (obj = {}, pathArg = [], value) => {
     /*
      * @param {object}            obj={ }           Object in which you want to find a value or set a value deep inside.
      *
-     * @param {string | Array}    path=[ ]          Path of the value specified as string -
+     * @param {string | Array}    pathArg=[ ]       Path of the value specified as string -
      *                                              e.g. 'users.2.address.city' will get/set the city of the address of the 3rd user in the users array in obj.
      *                                              or an array -
      *                                              e.g. ['users', 2, 'address', 'city'] does the same as above.
@@ -34,49 +34,69 @@ const deepDiver = (obj = {}, pathArg = [], value) => {
      *                                              If a node is not found at the provided path, then null is return.
      * */
 
+    const pathArray = typeof pathArg === 'string' ? pathArg.split('.') : Array.isArray(pathArg) ? pathArg : []
+
     // if value is not provided, deepDiver will fetch and return the value of the node at the path given in pathArray
-    const get = (srcObject, path) => {
+    const get = (rootNode, path) => {
         /* const getValueAtProp = (node, prop) => {
             return node[prop]
         } */
 
-        const pathArray = typeof path === 'string' ? path.split('.') : Array.isArray(path) ? path : []
-        return pathArray.reduce((item, prop) => {
-            // console.log('item = ')
-            // console.log(item)
-            if (item && prop != null) {
-                // filter item array if prop is a filter callback
-                if (Array.isArray(item)) {
+        const props = typeof path === 'string' ? path.split('.') : Array.isArray(path) ? path : []
+
+        console.log('props = ')
+        console.log(props)
+
+        return props.reduce((node, prop) => {
+            // prop is a path segment e.g. if path is ['users', 0, 'name', 'firstName'] or 'users.0.name.firstName'
+            // then prop is 'user', 0, 'name' and 'firstName'
+            if (node && prop != null) {
+                // if node is an array
+                if (Array.isArray(node)) {
+                    const arr = node
+
+                    // if the prop is a filter function, then filter the array to return an array of matching items
                     if (typeof prop === 'function') {
-                        return item.filter(prop)
+                        return arr.filter(prop)
                     }
 
-                    if (typeof prop === 'number') {
-                        return item[prop]
+                    // if the prop is a number, use it as an index for the array to return the nth item
+                    if (typeof prop === 'number' || !isNaN(parseInt(prop, 10))) {
+                        console.log('node[prop] = ')
+                        console.log(arr[prop])
+
+                        return arr[prop]
                     }
 
+                    // if the prop is an array of keys, then return an object with those keys only (pluck properties)
                     if (Array.isArray(prop)) {
-                        return item.map(node =>
+                        return arr.map(item =>
                             prop.reduce((returnObj, key) => {
-                                returnObj[key] = node[key]
+                                returnObj[key] = item[key]
                                 return returnObj
                             }, {}),
                         )
                     }
-                    return item.map(node => node[prop])
+
+                    // if the prop is a string which is not a number, then use it as a key and pluck value of item.key to return an array of values
+                    // e.g. if arr is [{a: 1, b: 'hi'}, {a: 2, b: 'hello'}] and prop is a, then return [1, 2]
+                    return arr.map(item => item[prop])
                 }
-                return item[prop]
+
+                // if node is an object
+                return node[prop]
             }
             return null
-        }, srcObject)
+        }, rootNode)
     }
 
     if (value === undefined) {
-        return get(obj, pathArg)
+        return get(obj, pathArray)
     }
+
     // if value is provided, deepr will set the value of the node at the path given in pathArray
-    const [lastProp] = pathArg.slice(-1)
-    const node = get(obj, pathArg.slice(0, -1))
+    const [lastProp] = pathArray.slice(-1)
+    const node = get(obj, lastProp)
 
     /* const setValue = (node, prop, value) => {
             if (Array.isArray(value)) {
